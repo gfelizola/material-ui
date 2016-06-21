@@ -182,7 +182,9 @@ const TableRow = React.createClass({
   _onCellClick(e, columnIndex) {
     if (this.props.selectable && this.props.onCellClick) this.props.onCellClick(e, this.props.rowNumber, columnIndex);
     e.ctrlKey = true;
-    this._onRowClick(e);
+    if(this.props.unselectableColumns.indexOf(columnIndex) === -1) {
+      this._onRowClick(e);
+    }
   },
 
   _onCellHover(e, columnIndex) {
