@@ -132,13 +132,17 @@ const TableBody = React.createClass({
     return React.Children.map(this.props.children, (child) => {
       if (React.isValidElement(child)) {
         let props = {
-          displayRowCheckbox: this.props.displayRowCheckbox ? child.props.displayRowCheckbox : false,
+          displayRowCheckbox: child.props.displayRowCheckbox,
           hoverable: this.props.showRowHover,
           selected: this._isRowSelected(rowNumber),
           striped: this.props.stripedRows && (rowNumber % 2 === 0),
           rowNumber: rowNumber++,
         };
-        let checkboxColumn = this._createRowCheckboxColumn(props);
+
+        let checkboxColumn = null;
+        if (this.props.displayRowCheckbox) {
+            checkboxColumn = this._createRowCheckboxColumn(props);
+        }
 
         if (rowNumber === numChildren) {
           props.displayBorder = false;
