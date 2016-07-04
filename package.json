@@ -1,7 +1,7 @@
 {
   "name": "material-ui-express",
   "private": true,
-  "author": "Call-em-all Engineering Team",
+  "author": "KPL Express Team",
   "version": "0.15.3",
   "description": "Material Design UI components built with React",
   "main": "./src/index.js",
