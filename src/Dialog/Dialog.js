@@ -7,7 +7,7 @@ import Overlay from '../internal/Overlay';
 import RenderToLayer from '../internal/RenderToLayer';
 import Paper from '../Paper';
 
-import ReactTransitionGroup from 'react-addons-transition-group';
+import ReactTransitionGroup from 'react-addons-css-transition-group';
 
 class TransitionItem extends Component {
   static propTypes = {
@@ -321,10 +321,12 @@ class DialogInline extends Component {
         <ReactTransitionGroup
           component="div"
           ref="dialogWindow"
+          transitionName="dialog-transition"
           transitionAppear={true}
           transitionAppearTimeout={450}
           transitionEnter={true}
           transitionEnterTimeout={450}
+          transitionLeave={false}
         >
           {open &&
             <TransitionItem

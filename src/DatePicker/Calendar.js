@@ -51,6 +51,7 @@ class Calendar extends Component {
     disableYearSelection: false,
     initialDate: new Date(),
     locale: 'en-US',
+    firstDayOfWeek: 1,
     minDate: addYears(new Date(), -100),
     maxDate: addYears(new Date(), 100),
   };

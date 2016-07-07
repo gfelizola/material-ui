@@ -23,6 +23,7 @@ function getStyles(props, context) {
   let margin = Math.round( ((50 * zoom) - 50) / 2 );
 
   if (margin < 0) margin = 0;
+  if (margin === 0) margin = "0px";
 
   const styles = {
     root: {
