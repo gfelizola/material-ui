@@ -3,7 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 import {mount, shallow} from 'enzyme';
-import {stub} from 'sinon';
 import {assert} from 'chai';
 
 import RaisedButton from './RaisedButton';
