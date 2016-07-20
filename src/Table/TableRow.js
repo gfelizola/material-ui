@@ -148,7 +148,10 @@ class TableRow extends Component {
       this.props.onCellClick(event, this.props.rowNumber, columnIndex);
     }
     event.ctrlKey = true;
-    this.onRowClick(event);
+
+    if(!this.props.unselectableColumns || this.props.unselectableColumns.indexOf(columnIndex) === -1) {
+      this.onRowClick(event);
+    }
   };
 
   onCellHover = (event, columnIndex) => {
