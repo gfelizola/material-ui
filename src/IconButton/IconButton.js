@@ -171,7 +171,7 @@ class IconButton extends Component {
     if (keyboardFocused && !this.props.disabled) {
       this.showTooltip();
       if (this.props.onFocus) this.props.onFocus(event);
-    } else if (!this.state.hovered) {
+    } else {
       this.hideTooltip();
       if (this.props.onBlur) this.props.onBlur(event);
     }
@@ -190,6 +190,7 @@ class IconButton extends Component {
       onKeyboardFocus, // eslint-disable-line no-unused-vars
       tooltip,
       tooltipPosition: tooltipPositionProp,
+      tooltipStyles,
       touch,
       iconStyle,
       ...other,
@@ -205,7 +206,7 @@ class IconButton extends Component {
         label={tooltip}
         show={this.state.tooltipShown}
         touch={touch}
-        style={Object.assign(styles.tooltip, this.props.tooltipStyles)}
+        style={Object.assign(styles.tooltip, tooltipStyles)}
         verticalPosition={tooltipPosition[0]}
         horizontalPosition={tooltipPosition[1]}
       />

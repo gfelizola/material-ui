@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import Drawer from 'material-ui/Drawer';
-import {List, ListItem, MakeSelectable} from 'material-ui/List';
+import {List, ListItem, makeSelectable} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import DropDownMenu from 'material-ui/DropDownMenu';
@@ -8,7 +8,7 @@ import MenuItem from 'material-ui/MenuItem';
 import {spacing, typography, zIndex} from 'material-ui/styles';
 import {cyan500} from 'material-ui/styles/colors';
 
-const SelectableList = MakeSelectable(List);
+const SelectableList = makeSelectable(List);
 
 const styles = {
   logo: {
@@ -146,7 +146,7 @@ class AppNavDrawer extends Component {
             primaryText="Get Started"
             primaryTogglesNestedList={true}
             nestedItems={[
-              <ListItem primaryText="Prerequisites" value="/get-started/prerequisites" />,
+              <ListItem primaryText="Required Knowledge" value="/get-started/required-knowledge" />,
               <ListItem primaryText="Installation" value="/get-started/installation" />,
               <ListItem primaryText="Usage" value="/get-started/usage" />,
               <ListItem primaryText="Server Rendering" value="/get-started/server-rendering" />,
@@ -158,7 +158,7 @@ class AppNavDrawer extends Component {
             primaryTogglesNestedList={true}
             nestedItems={[
               <ListItem primaryText="Themes" value="/customization/themes" />,
-              <ListItem primaryText="Inline Styles" value="/customization/inline-styles" />,
+              <ListItem primaryText="Styles" value="/customization/styles" />,
               <ListItem primaryText="Colors" value="/customization/colors" />,
             ]}
           />
@@ -185,6 +185,11 @@ class AppNavDrawer extends Component {
                 primaryText="Badge"
                 value="/components/badge"
                 href="#/components/badge"
+              />,
+              <ListItem
+                primaryText="Bottom Navigation"
+                value="/components/bottom-navigation"
+                href="#/components/bottom-navigation"
               />,
               <ListItem
                 primaryText="Buttons"

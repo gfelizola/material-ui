@@ -1,4 +1,4 @@
-import merge from 'lodash/merge';
+import merge from 'lodash.merge';
 import {darken, fade, emphasize, lighten} from '../utils/colorManipulator';
 import lightBaseTheme from './baseThemes/lightBaseTheme';
 import zIndex from './zIndex';
@@ -49,6 +49,14 @@ export default function getMuiTheme(muiTheme, ...more) {
       secondaryTextColor: palette.alternateTextColor,
       fontWeight: typography.fontWeightMedium,
     },
+    bottomNavigation: {
+      backgroundColor: palette.canvasColor,
+      unselectedColor: fade(palette.textColor, 0.54),
+      selectedColor: palette.primary1Color,
+      height: 56,
+      unselectedFontSize: 12,
+      selectedFontSize: 14,
+    },
     button: {
       height: 36,
       minWidth: 88,
@@ -91,7 +99,7 @@ export default function getMuiTheme(muiTheme, ...more) {
       calendarTextColor: palette.textColor,
       selectColor: palette.primary2Color,
       selectTextColor: palette.alternateTextColor,
-      calendarYearBackgroundColor: white,
+      calendarYearBackgroundColor: palette.canvasColor,
     },
     dialog: {
       titleFontSize: 22,
