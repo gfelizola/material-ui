@@ -2,7 +2,7 @@
   "name": "material-ui-express",
   "private": true,
   "author": "Call-em-all Engineering Team",
-  "version": "0.16.0",
+  "version": "0.16.1",
   "description": "React Components that Implement Google's Material Design.",
   "main": "./src/index.js",
   "keywords": [
