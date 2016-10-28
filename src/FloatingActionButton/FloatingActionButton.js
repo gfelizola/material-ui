@@ -244,6 +244,7 @@ class FloatingActionButton extends Component {
     const {
       backgroundColor, // eslint-disable-line no-unused-vars
       className,
+      children: childrenProp,
       disabled,
       mini,
       secondary, // eslint-disable-line no-unused-vars
@@ -269,12 +270,17 @@ class FloatingActionButton extends Component {
       );
     }
 
-    const children = extendChildren(this.props.children, {
-      style: Object.assign({},
-        styles.icon,
-        mini && styles.iconWhenMini,
-        iconStyle),
-    });
+    let children;
+
+    if (childrenProp) {
+      children = extendChildren(childrenProp, {
+        style: Object.assign({},
+          styles.icon,
+          mini && styles.iconWhenMini,
+          iconStyle,
+          childrenProp.props.style),
+      });
+    }
 
     const buttonEventHandlers = disabled ? null : {
       onMouseDown: this.handleMouseDown,
