@@ -44,7 +44,6 @@
     "react-tap-event-plugin": "^1.0.0 || ^2.0.0"
   },
   "dependencies": {
-    "babel-runtime": "^6.11.6",
     "inline-style-prefixer": "^2.0.1",
     "keycode": "^2.1.1",
     "lodash.merge": "^4.6.0",
