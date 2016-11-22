@@ -246,7 +246,7 @@ class IconMenu extends Component {
       targetOrigin,
       touchTapCloseDelay, // eslint-disable-line no-unused-vars
       useLayerForClickAway,
-      ...other,
+      ...other
     } = this.props;
 
     const {prepareStyles} = this.context.muiTheme;
@@ -271,7 +271,9 @@ You should wrapped it with an <IconButton />.`);
 
     const iconButton = React.cloneElement(iconButtonElement, {
       onKeyboardFocus: onKeyboardFocus,
-      iconStyle: Object.assign({}, iconStyle, iconButtonElement.props.iconStyle),
+      iconStyle: iconStyle ?
+        Object.assign({}, iconStyle, iconButtonElement.props.iconStyle) :
+        iconButtonElement.props.iconStyle,
       onTouchTap: (event) => {
         this.open(Events.isKeyboard(event) ? 'keyboard' : 'iconTap', event);
         if (iconButtonElement.props.onTouchTap) {

@@ -7,12 +7,6 @@ import Paper from '../Paper';
 import throttle from 'lodash.throttle';
 import PopoverAnimationDefault from './PopoverAnimationDefault';
 
-const styles = {
-  root: {
-    display: 'none',
-  },
-};
-
 class Popover extends Component {
   static propTypes = {
     /**
@@ -187,7 +181,7 @@ class Popover extends Component {
       style,
       targetOrigin,
       useLayerForClickAway, // eslint-disable-line no-unused-vars
-      ...other,
+      ...other
     } = this.props;
 
     let styleRoot = style;
@@ -383,7 +377,7 @@ class Popover extends Component {
 
   render() {
     return (
-      <div style={styles.root}>
+      <div>
         <EventListener
           target="window"
           onScroll={this.handleScroll}

@@ -30,43 +30,17 @@ describe('<TextField />', () => {
     wrapper.find('input').simulate('change', {target: {value: 'woof'}});
   });
 
-  it('shrinks TextFieldLabel when defaultValue is set and value is null', () => {
+  it('shrinks TextFieldLabel when defaultValue', () => {
     const wrapper = shallowWithContext(
       <TextField
         floatingLabelText="floating label text"
         defaultValue="default value"
-        value={null}
       />
     );
 
     assert.strictEqual(wrapper.find(TextFieldLabel).props().shrink, true, 'should shrink TextFieldLabel');
-
-    // set a new prop to trigger componentWillReceiveProps
-    wrapper.setProps({id: '1'});
+    wrapper.update();
     assert.strictEqual(wrapper.find(TextFieldLabel).props().shrink, true, 'should shrink TextFieldLabel');
-  });
-
-  it(`unshrinks TextFieldLabel when defaultValue is set, the component has had input change,
-        and value is re-set to null`, () => {
-    const wrapper = shallowWithContext(
-      <TextField
-        floatingLabelText="floating label text"
-        defaultValue="default value"
-        value={null}
-      />
-    );
-    assert.strictEqual(wrapper.find(TextFieldLabel).props().shrink, true, 'should shrink TextFieldLabel');
-
-    // make input change
-    const input = wrapper.find('input');
-    input.simulate('change', {target: {value: 'foo'}});
-    assert.strictEqual(wrapper.find(TextFieldLabel).props().shrink, true, 'should shrink TextFieldLabel');
-
-    // set value to null again, which should unshrink the TextFieldLabel, even though TextField's isClean
-    // state property is false.
-    wrapper.setProps({value: null});
-    assert.strictEqual(wrapper.state().isClean, false);
-    assert.strictEqual(wrapper.find(TextFieldLabel).props().shrink, false, 'should not shrink TextFieldLabel');
   });
 
   describe('prop: children', () => {
@@ -148,6 +122,23 @@ describe('<TextField />', () => {
       input.simulate('change', {target: {value: 'a'}});
       assert.strictEqual(wrapper.find(TextFieldHint).props().show, true,
         'The hint text should keep the same state');
+    });
+  });
+
+  describe('prop: floatingLabelFocusStyle', () => {
+    it('should be applied when the input is focused', () => {
+      const wrapper = shallowWithContext(
+        <TextField
+          floatingLabelText="Name"
+          floatingLabelFixed={true}
+          floatingLabelFocusStyle={{color: 'blue'}}
+          floatingLabelStyle={{color: 'red'}}
+        />
+      );
+      wrapper.setState({
+        isFocused: true,
+      });
+      assert.strictEqual(wrapper.find(TextFieldLabel).props().style.color, 'blue');
     });
   });
 });

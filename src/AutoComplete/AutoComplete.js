@@ -263,6 +263,8 @@ class AutoComplete extends Component {
         searchText: searchText,
       });
       this.close();
+
+      this.props.onUpdateInput(searchText, dataSource);
       this.props.onNewRequest(chosenRequest, index);
     }, this.props.menuCloseDelay);
   };
@@ -388,8 +390,13 @@ class AutoComplete extends Component {
       openOnFocus, // eslint-disable-line no-unused-vars
       popoverProps,
       searchText: searchTextProp, // eslint-disable-line no-unused-vars
-      ...other,
+      ...other
     } = this.props;
+
+    const {
+      style: popoverStyle,
+      ...popoverOther
+    } = popoverProps || {};
 
     const {
       open,
@@ -496,8 +503,7 @@ class AutoComplete extends Component {
           style={textFieldStyle}
         />
         <Popover
-          {...popoverProps}
-          style={styles.popover}
+          style={Object.assign({}, styles.popover, popoverStyle)}
           canAutoPosition={false}
           anchorOrigin={anchorOrigin}
           targetOrigin={targetOrigin}
@@ -507,6 +513,7 @@ class AutoComplete extends Component {
           onRequestClose={this.handleRequestClose}
           animated={animated}
           animation={animation}
+          {...popoverOther}
         >
           {menu}
         </Popover>

@@ -124,6 +124,73 @@ Thanks @vizath, @hhaida, @nathanmarks and @aahan96 for their effort.
 ##### Deperecations
 - [SelectField] Deprecate selectFieldRoot prop and replace with menuStyle (#4394)
 
+## 0.16.4
+###### _Nov 17, 2016_
+
+##### Component Fixes / Enhancements
+
+- [npm] Rollback the react dependency path to `v15.0.0` (417913e41fbc3366c6997258263270c6d7465c1a)
+
+## 0.16.3
+###### _Nov 17, 2016_
+
+This release is intended to solve an [issue](https://github.com/callemall/material-ui/issues/5573) with `react-tap-event-plugin` following the release of React `v15.4.0`.
+
+##### Component Fixes / Enhancements
+
+- [ListItem] Fix hover on touch devices (#5566)
+- [core] include `react-tap-event-plugin@^2.0.0` for `react@^15.4.0` (#5572)
+- [core] Add support for Webpack 2/Rollup tree shaking (#5545)
+
+##### Docs
+
+- [docs] Upgrade React to v15.4.0 (#5575)
+
+## 0.16.2
+###### _Nov 13, 2016_
+
+This is another release improving the stability of `v0.16.x` while we are working on get `next` out of the door.
+
+##### Component Fixes / Enhancements
+
+- [AutoComplete] Fire onUpdateInput when an item from the dropdown is selected (#5518)
+- [AutoComplete] Fix Popover's style overriding popoverProps (#5516)
+- [Card] Add closeIcon and openIcon for customizability (#5513)
+- [FloatingActionButton] Fix regression with n children (#5468)
+- [GridList] Add the support for cellHeight="auto" (#5452)
+- [GridTitle] Add a titleStyle property (#5535)
+- [IconMenu] Change IconMenu to conditionally merge button styles (#5496)
+- [IE] Remove the unsupported initial property (#5539)
+- [MenuItem][ListItem] Allow overriding hoverColor (#5502)
+- [ListItem] Fix an issue with the controlled behavior (#5514)
+- [ListItem] Clear hover state if componet get's disabled (#5528)
+- [Popover] Fix support for invalid `anchorEl` (#5444)
+- [RaisedButton] Fix hover on touch devices (#5536)
+- [Stepper] Fix children count method (#5429)
+- [Stepper] Add iconContainerStyle to StepButton and StepLabel (#5507)
+- [Tabs] Fix Firefox height issue (bf25bc118523b359bba5a5540205174a1c2d9e27)
+- [Table] Warning on rendering attempt of unsupported child (#5520)
+- [TextField] Add ability to style label color when a value is present (#5490)
+- [TextField] Fix wrong style behing applied to div elements (#5446)
+- [TextField] Fix floatingLabelFocusStyle when floatingLabelFixed is true (#5487)
+- [TextField] Remove the isClean logic (#5540)
+- [TimePicker] Fix `autoOk` closing the dialog too early (#5511)
+- [ToolbarGroup] Fix vertical alignment (#5515)
+- [ToolbarTitle] Take font family from base theme (#5434)
+- [Toggle] Fix label propTypes from `string` to `node` (#5474)
+
+##### Core
+
+- [npm] Upgrade the dependencies (#5466, #5537)
+
+##### Docs
+
+- [docs] Add one more resource around the style migration (0d375d6271a2c65e6e608dde28ee4ca55defd81b)
+- [docs] Add a note regarding other properties (#5491)
+- [docs] Add redux-form in the Related projects section (3e10f203bc3a7d79f94011586c134b6e17a69016)
+- [docs] Add CReMa in the Related projects section (#5431)
+
+
 ## 0.16.1
 ###### _Oct 18, 2016_
 

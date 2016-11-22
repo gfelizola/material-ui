@@ -234,7 +234,7 @@ class MenuItem extends Component {
       style,
       animation,
       value, // eslint-disable-line no-unused-vars
-      ...other,
+      ...other
     } = this.props;
 
     const {prepareStyles} = this.context.muiTheme;
@@ -292,6 +292,7 @@ class MenuItem extends Component {
       <ListItem
         {...other}
         disabled={disabled}
+        hoverColor={this.context.muiTheme.menuItem.hoverColor}
         innerDivStyle={mergedInnerDivStyles}
         insetChildren={insetChildren}
         leftIcon={leftIconElement}
