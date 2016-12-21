@@ -154,6 +154,7 @@ class Calendar extends Component {
     const date = cloneDate(this.state.selectedDate);
     date.setFullYear(year);
     this.setSelectedDate(date, event);
+    this.handleTouchTapDateDisplayMonthDay();
   };
 
   getToolbarInteractions() {

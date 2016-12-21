@@ -18,8 +18,8 @@ class Popover extends Component {
      * This is the point on the anchor where the popover's
      * `targetOrigin` will attach to.
      * Options:
-     * vertical: [top, middle, bottom];
-     * horizontal: [left, center, right].
+     * vertical: [top, center, bottom]
+     * horizontal: [left, middle, right].
      */
     anchorOrigin: propTypes.origin,
     /**
@@ -68,8 +68,8 @@ class Popover extends Component {
      * This is the point on the popover which will attach to
      * the anchor's origin.
      * Options:
-     * vertical: [top, middle, bottom];
-     * horizontal: [left, center, right].
+     * vertical: [top, center, bottom]
+     * horizontal: [left, middle, right].
      */
     targetOrigin: propTypes.origin,
     /**
@@ -189,6 +189,7 @@ class Popover extends Component {
     if (!animated) {
       styleRoot = {
         position: 'fixed',
+        zIndex: this.context.muiTheme.zIndex.popover,
       };
 
       if (!this.state.open) {
@@ -196,7 +197,7 @@ class Popover extends Component {
       }
 
       return (
-        <Paper style={Object.assign({}, styleRoot, style)} {...other}>
+        <Paper style={Object.assign(styleRoot, style)} {...other}>
           {children}
         </Paper>
       );
