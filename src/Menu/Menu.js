@@ -79,6 +79,10 @@ class Menu extends Component {
      */
     maxHeight: PropTypes.number,
     /**
+     * Override the inline-styles of menu items.
+     */
+    menuItemStyle: PropTypes.object,
+    /**
      * If true, `value` must be an array and the menu will support
      * multiple selections.
      */
@@ -233,6 +237,7 @@ class Menu extends Component {
   cloneMenuItem(child, childIndex, styles, index) {
     const {
       desktop,
+      menuItemStyle,
       selectedMenuItemStyle,
     } = this.props;
 
@@ -243,7 +248,7 @@ class Menu extends Component {
       selectedChildrenStyles = Object.assign(styles.selectedMenuItem, selectedMenuItemStyle);
     }
 
-    const mergedChildrenStyles = Object.assign({}, child.props.style, selectedChildrenStyles);
+    const mergedChildrenStyles = Object.assign({}, child.props.style, menuItemStyle, selectedChildrenStyles);
 
     const isFocused = childIndex === this.state.focusIndex;
     let focusState = 'none';
@@ -475,6 +480,7 @@ class Menu extends Component {
       onItemTouchTap, // eslint-disable-line no-unused-vars
       onEscKeyDown, // eslint-disable-line no-unused-vars
       selectedMenuItemStyle, // eslint-disable-line no-unused-vars
+      menuItemStyle, // eslint-disable-line no-unused-vars
       style,
       value, // eslint-disable-line no-unused-vars
       valueLink, // eslint-disable-line no-unused-vars
@@ -495,7 +501,9 @@ class Menu extends Component {
       const childIsADivider = child.type && child.type.muiName === 'Divider';
       const childIsDisabled = child.props.disabled;
 
-      const clonedChild = childIsADivider ? React.cloneElement(child, {style: styles.divider}) :
+      const clonedChild = childIsADivider ? React.cloneElement(child, {
+        style: Object.assign({}, styles.divider, child.props.style),
+      }) :
         childIsDisabled ? React.cloneElement(child, {desktop: desktop}) :
         this.cloneMenuItem(child, menuItemIndex, styles, index);
 
